@@ -3,122 +3,174 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ANU RAVINDRA - Resume</title>
+<title>Anu Ravindra | Portfolio</title>
 
 <style>
 body{
+  margin:0;
   font-family: Arial, sans-serif;
-  margin: 30px;
-  color: #000;
-  line-height: 1.4;
+  background:#f5f7fb;
+  color:#222;
 }
 
-h1{
+header{
+  background:#0b57d0;
+  color:white;
   text-align:center;
-  font-size:24px;
-  margin-bottom:5px;
+  padding:40px 20px;
 }
 
-.contact{
-  text-align:center;
-  font-size:13px;
-  margin-bottom:20px;
+header h1{
+  margin:0;
+  font-size:32px;
 }
 
-.section-title{
-  font-size:15px;
-  font-weight:bold;
-  border-bottom:1px solid #000;
-  margin-top:18px;
-  padding-bottom:3px;
+header p{
+  margin:5px 0;
+  font-size:14px;
 }
 
-p, li{
-  font-size:13px;
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  margin:15px 0;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+h2{
+  color:#0b57d0;
+  border-left:5px solid #0b57d0;
+  padding-left:10px;
 }
 
 ul{
-  margin-top:5px;
+  padding-left:20px;
 }
 
-.two-col{
-  display:flex;
-  justify-content:space-between;
+.project-title{
+  font-weight:bold;
+  margin-bottom:5px;
 }
 
-.small{
+.badge{
+  display:inline-block;
+  background:#e8f0fe;
+  color:#0b57d0;
+  padding:5px 10px;
+  border-radius:20px;
   font-size:12px;
+  margin:3px;
+}
+
+a{
+  color:#0b57d0;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
 }
 </style>
-
 </head>
 
 <body>
 
-<h1>ANU RAVINDRA</h1>
-<div class="contact">
-Mysore, Karnataka | +91 7899273351 | anu.ravindra08@gmail.com <br/>
+<header>
+  <h1>ANU RAVINDRA</h1>
+  <p>Mysore, Karnataka | +91 7899273351 | anuravindra0@gmail.com</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>About Me</h2>
+    <p>
+      Motivated Computer Science Engineering (AI & ML) student passionate about software development, AI, and building scalable solutions. Interested in full-stack development and cloud technologies.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Education</h2>
+    <ul>
+      <li><b>B.E CSE (AI & ML)</b> – GSSSIETW, 2022–2026 | CGPA: 9.32</li>
+      <li><b>PUC (PCMB)</b> – 87.6%</li>
+      <li><b>SSLC</b> – CGPA: 8.2</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Experience</h2>
+    <p><b>Software Development Intern – Eli Lilly and Company</b></p>
+    <ul>
+      <li>Worked on Clinical Account Management and AI content generation systems</li>
+      <li>Used AWS, RAG, AI Agents, and LangChain for intelligent applications</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Projects</h2>
+
+    <p class="project-title">Campus Event Management System</p>
+    <ul>
+      <li>Full-stack platform for managing campus events</li>
+      <li><a href="https://anuravindra.pythonanywhere.com/" target="_blank">Live Project</a></li>
+    </ul>
+
+    <p class="project-title">Text & PDF Dispatcher</p>
+    <ul>
+      <li>Automated bulk email system using Python, Excel, SMTP</li>
+    </ul>
+
+    <p class="project-title">Attendance System (Face Recognition)</p>
+    <ul>
+      <li>Python + OpenCV based attendance automation system</li>
+    </ul>
+
+  </div>
+
+  <div class="card">
+    <h2>Skills</h2>
+
+    <span class="badge">Python</span>
+    <span class="badge">JavaScript</span>
+    <span class="badge">C</span>
+    <span class="badge">React</span>
+    <span class="badge">Node.js</span>
+    <span class="badge">MySQL</span>
+    <span class="badge">MongoDB</span>
+    <span class="badge">AWS</span>
+    <span class="badge">Git</span>
+    <span class="badge">Power BI</span>
+
+  </div>
+
+  <div class="card">
+    <h2>Certifications & Achievements</h2>
+    <ul>
+      <li>Google Cloud Career Launchpad (GenAI)</li>
+      <li>AWS Cloud Foundations</li>
+      <li>1st Place – Brainy Bowl Contest</li>
+      <li>3rd Place – MindSpark Quiz</li>
+      <li>Samsung Innovation Campus Training</li>
+      <li>Google Cloud Club Member</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Languages</h2>
+    <span class="badge">English</span>
+    <span class="badge">Hindi</span>
+    <span class="badge">Kannada</span>
+  </div>
+
 </div>
-
-<div class="section-title">SUMMARY</div>
-<p>
-Motivated Computer Science Engineering (AI & ML) student seeking a challenging role to apply software development, problem-solving, and analytical skills. Passionate about building scalable solutions and continuously learning modern technologies.
-</p>
-
-<div class="section-title">EDUCATION</div>
-<p><b>GSSS Institute of Engineering and Technology for Women</b> — B.E CSE (AI & ML) | CGPA: 9.32 (2022–2026)</p>
-<p><b>Citizens’ PU College</b> — PCMB | 87.6% (2020–2022)</p>
-<p><b>Citizens’ Public School</b> — CBSE | CGPA: 8.2 (2007–2020)</p>
-
-<div class="section-title">WORK EXPERIENCE</div>
-<p><b>Software Development Intern – Eli Lilly and Company (Jan 2026 – Jul 2026)</b></p>
-<ul>
-<li>Worked on Clinical Account Management and AI-based report/content generation systems.</li>
-<li>Gained hands-on experience in AWS, AI agents, RAG, and LangChain for building intelligent applications.</li>
-</ul>
-
-<div class="section-title">PROJECTS</div>
-
-<p><b>Campus Event Management System</b></p>
-<ul>
-<li>Centralized platform for managing campus events with scheduling, analytics, and user management.</li>
-<li>Built using full-stack technologies.</li>
-<li>Link: https://anuravindra.pythonanywhere.com/</li>
-</ul>
-
-<p><b>Text and PDF Dispatcher</b></p>
-<ul>
-<li>Automated bulk email system using Excel and SMTP for sending text and PDF files efficiently.</li>
-</ul>
-
-<p><b>Attendance System (Face Recognition)</b></p>
-<ul>
-<li>Python + OpenCV system for automated attendance tracking with CSV generation and UI.</li>
-</ul>
-
-<div class="section-title">SKILLS</div>
-<p>
-<b>Languages:</b> Python, JavaScript, C <br/>
-<b>Frontend:</b> React.js, HTML5, CSS3 <br/>
-<b>Backend:</b> Python, Node.js <br/>
-<b>Databases:</b> MySQL, MongoDB <br/>
-<b>Tools:</b> Git, GitHub, VS Code, MS Office <br/>
-<b>Data:</b> Tableau, Power BI
-</p>
-
-<div class="section-title">CERTIFICATIONS & ACHIEVEMENTS</div>
-<ul>
-<li>Google Cloud Career Launchpad (Generative AI)</li>
-<li>AWS Academy Cloud Foundations</li>
-<li>Hackcelerate 24-Hour Hackathon – GSSSIETW</li>
-<li>1st Place – Brainy Bowl Contest</li>
-<li>3rd Place – MindSpark Quiz</li>
-<li>Member – Google Cloud Club</li>
-<li>Samsung Innovation Campus Training Program</li>
-</ul>
-
-<div class="section-title">LANGUAGES</div>
-<p>English | Hindi | Kannada</p>
 
 </body>
 </html>
