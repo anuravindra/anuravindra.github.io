@@ -3,174 +3,712 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Anu Ravindra | Portfolio</title>
-
+<title>Anu Ravindra — Software Engineer</title>
+<meta name="description" content="Portfolio of Anu Ravindra — Full-Stack Developer & AI/ML Engineer." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#f5f7fb;
-  color:#222;
-}
+  :root{
+    --paper:#F2F5FA;
+    --paper-raised:#FFFFFF;
+    --ink:#0F1C2E;
+    --ink-soft:#4C5A6E;
+    --line:#CBD7E6;
+    --line-soft:#E1E8F1;
+    --signal:#FF6A1A;
+    --signal-soft:#FFE7D9;
+    --data:#0091AE;
+    --data-soft:#DAF3F7;
+    --led:#33C17A;
+    --radius:14px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --maxw:920px;
+  }
 
-header{
-  background:#0b57d0;
-  color:white;
-  text-align:center;
-  padding:40px 20px;
-}
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
 
-header h1{
-  margin:0;
-  font-size:32px;
-}
+  body{
+    margin:0;
+    font-family:var(--body);
+    background:
+      radial-gradient(1100px 600px at 85% -10%, #E7EEF9 0%, transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
 
-header p{
-  margin:5px 0;
-  font-size:14px;
-}
+  a{ color:var(--data); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--signal);
+    outline-offset:3px;
+    border-radius:4px;
+  }
 
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-}
+  ::selection{ background:var(--signal-soft); color:var(--ink); }
 
-.card{
-  background:white;
-  padding:20px;
-  margin:15px 0;
-  border-radius:10px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
+  /* ---------- layout shells ---------- */
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
 
-h2{
-  color:#0b57d0;
-  border-left:5px solid #0b57d0;
-  padding-left:10px;
-}
+  /* ---------- header / hero ---------- */
+  header.hero{
+    position:relative;
+    background:
+      linear-gradient(180deg, #0F1C2E 0%, #14273F 100%);
+    color:#F2F5FA;
+    overflow:hidden;
+    padding:72px 0 64px;
+  }
+  header.hero::before{
+    /* faint blueprint grid */
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size:36px 36px;
+    mask-image:radial-gradient(circle at 80% 20%, black 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{ position:relative; z-index:1; }
 
-ul{
-  padding-left:20px;
-}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.02em;
+    color:#9FB4CF;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:18px;
+  }
+  .led{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--led);
+    box-shadow:0 0 0 3px rgba(51,193,122,0.18);
+    flex:0 0 auto;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .led{ animation:blink 2.6s ease-in-out infinite; }
+  }
+  @keyframes blink{
+    0%,100%{ opacity:1; }
+    50%{ opacity:0.35; }
+  }
 
-.project-title{
-  font-weight:bold;
-  margin-bottom:5px;
-}
+  h1.name{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(38px, 6vw, 62px);
+    line-height:1.02;
+    margin:0 0 10px;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    font-family:var(--mono);
+    font-size:clamp(14px, 2vw, 17px);
+    color:#C9D6E8;
+    margin:0 0 28px;
+  }
+  .role .sep{ color:var(--signal); padding:0 8px; }
 
-.badge{
-  display:inline-block;
-  background:#e8f0fe;
-  color:#0b57d0;
-  padding:5px 10px;
-  border-radius:20px;
-  font-size:12px;
-  margin:3px;
-}
+  .status-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:#DDE7F3;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    padding:7px 14px;
+    border-radius:999px;
+    margin-bottom:34px;
+  }
 
-a{
-  color:#0b57d0;
-  text-decoration:none;
-}
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:10px 18px;
+    font-family:var(--mono);
+    font-size:13.5px;
+  }
+  .contact-row a, .contact-row span{
+    display:inline-flex; align-items:center; gap:7px;
+    color:#D6E1EF;
+  }
+  .contact-row a:hover{ color:#fff; text-decoration:none; }
+  .contact-row svg{ width:15px; height:15px; opacity:0.8; flex:0 0 auto; }
+  .contact-row .divider{ color:#3C4E66; }
 
-a:hover{
-  text-decoration:underline;
-}
+  /* ---------- main / timeline shell ---------- */
+  main{ padding:8px 0 20px; }
+
+  .timeline{
+    position:relative;
+    padding-left:28px;
+    border-left:2px dashed var(--line);
+    margin-left:6px;
+  }
+  @media (max-width:640px){
+    .timeline{ padding-left:20px; margin-left:2px; }
+  }
+
+  section.node{
+    position:relative;
+    padding:46px 0 6px;
+    scroll-margin-top:24px;
+  }
+  section.node:first-of-type{ padding-top:56px; }
+
+  section.node::before{
+    content:"";
+    position:absolute;
+    left:-35px; top:52px;
+    width:12px; height:12px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2.5px solid var(--signal);
+    box-shadow:0 0 0 4px var(--paper), 0 0 0 5px var(--line-soft);
+  }
+  @media (max-width:640px){
+    section.node::before{ left:-27px; width:10px; height:10px; top:48px; }
+  }
+
+  .tag{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--signal);
+    background:var(--signal-soft);
+    padding:3px 10px;
+    border-radius:5px;
+    margin-bottom:14px;
+    letter-spacing:0.01em;
+  }
+
+  h2.section-title{
+    font-family:var(--display);
+    font-size:clamp(22px, 3vw, 28px);
+    font-weight:600;
+    margin:0 0 18px;
+    color:var(--ink);
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in-view{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ---------- about ---------- */
+  .about-text{
+    max-width:62ch;
+    font-size:16px;
+    color:var(--ink-soft);
+  }
+  .about-text strong{ color:var(--ink); font-weight:600; }
+
+  /* ---------- experience ---------- */
+  .xp-item{
+    background:var(--paper-raised);
+    border:1px solid var(--line-soft);
+    border-radius:var(--radius);
+    padding:22px 24px;
+    margin-bottom:16px;
+  }
+  .xp-top{
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:12px; flex-wrap:wrap;
+    margin-bottom:2px;
+  }
+  .xp-role{ font-weight:600; font-size:16.5px; }
+  .xp-date{
+    font-family:var(--mono); font-size:12.5px; color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .xp-org{
+    font-family:var(--mono); font-size:13px; color:var(--data);
+    margin-bottom:12px;
+  }
+  .xp-item ul{ margin:0; padding-left:20px; color:var(--ink-soft); }
+  .xp-item li{ margin-bottom:6px; font-size:15px; }
+  .xp-item li:last-child{ margin-bottom:0; }
+
+  /* ---------- projects ---------- */
+  .proj-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .proj-card{
+    background:#0F1C2E;
+    color:#DCE5F1;
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid #1E2E44;
+  }
+  .proj-titlebar{
+    display:flex; align-items:center; gap:8px;
+    padding:11px 16px;
+    background:#0B1521;
+    border-bottom:1px solid #1E2E44;
+  }
+  .proj-dot{ width:9px; height:9px; border-radius:50%; }
+  .proj-dot.r{ background:#FF5F56; }
+  .proj-dot.y{ background:#FFBD2E; }
+  .proj-dot.g{ background:#27C93F; }
+  .proj-path{
+    font-family:var(--mono); font-size:12px; color:#7C8FA8;
+    margin-left:6px;
+  }
+  .proj-body{ padding:20px 22px 22px; }
+  .proj-name{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:18px;
+    color:#F2F5FA;
+    margin:0 0 8px;
+  }
+  .proj-desc{ font-size:14.5px; color:#AEBDD1; margin:0 0 14px; }
+  .proj-desc + .proj-desc{ margin-top:-8px; }
+  .proj-meta{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-bottom:14px;
+  }
+  .chip{
+    font-family:var(--mono); font-size:11.5px;
+    color:#9FE0EC;
+    background:rgba(0,145,174,0.14);
+    border:1px solid rgba(0,145,174,0.35);
+    padding:3px 9px; border-radius:5px;
+  }
+  .proj-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:var(--mono); font-size:13px;
+    color:var(--signal);
+    border-top:1px solid #1E2E44;
+    padding-top:14px;
+    width:100%;
+  }
+  .proj-link svg{ width:13px; height:13px; }
+  .proj-note{
+    font-family:var(--mono); font-size:11.5px; color:#7C8FA8;
+    margin-top:10px;
+  }
+
+  /* ---------- skills ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:18px;
+  }
+  .skill-group{
+    background:var(--paper-raised);
+    border:1px solid var(--line-soft);
+    border-radius:var(--radius);
+    padding:18px 20px;
+  }
+  .skill-group h3{
+    font-family:var(--mono);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--data);
+    margin:0 0 12px;
+  }
+  .pin-list{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pin{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--ink);
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:5px 10px;
+    border-radius:6px;
+  }
+
+  /* ---------- education ---------- */
+  .edu-item{
+    display:flex; justify-content:space-between; gap:16px;
+    flex-wrap:wrap;
+    padding:16px 0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .edu-item:last-child{ border-bottom:none; }
+  .edu-name{ font-weight:600; font-size:15.5px; margin-bottom:3px; }
+  .edu-sub{ font-size:14px; color:var(--ink-soft); }
+  .edu-date{ font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); white-space:nowrap; }
+
+  /* ---------- achievements ---------- */
+  .ach-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:12px;
+  }
+  .ach-item{
+    display:flex; gap:12px;
+    background:var(--paper-raised);
+    border:1px solid var(--line-soft);
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .ach-item .mark{ color:var(--signal); font-family:var(--mono); flex:0 0 auto; }
+
+  .copyright-note{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    background:var(--paper-raised);
+    border:1px dashed var(--line);
+    border-radius:10px;
+    padding:12px 16px;
+    margin-top:14px;
+  }
+
+  /* ---------- languages ---------- */
+  .lang-row{ display:flex; flex-wrap:wrap; gap:12px; }
+  .lang-item{
+    background:var(--data-soft);
+    color:#04616F;
+    font-family:var(--mono);
+    font-size:13px;
+    padding:8px 14px;
+    border-radius:8px;
+  }
+  .lang-item b{ font-weight:600; }
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:60px;
+    background:#0F1C2E;
+    color:#C9D6E8;
+    padding:48px 0 32px;
+    text-align:center;
+  }
+  footer h2{
+    font-family:var(--display);
+    font-size:clamp(24px,4vw,34px);
+    color:#fff;
+    margin:0 0 10px;
+  }
+  footer p{ color:#9FB4CF; margin:0 0 26px; font-size:14.5px; }
+  .footer-links{
+    display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+    margin-bottom:36px;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:13.5px;
+    padding:11px 20px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.18);
+    color:#F2F5FA;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn:hover{ text-decoration:none; border-color:var(--signal); color:#fff; }
+  .btn.primary{
+    background:var(--signal);
+    border-color:var(--signal);
+    color:#12100F;
+    font-weight:600;
+  }
+  .btn.primary:hover{ background:#FF7E38; }
+  footer .fine{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:#5A6C85;
+  }
 </style>
 </head>
-
 <body>
 
-<header>
-  <h1>ANU RAVINDRA</h1>
-  <p>Mysore, Karnataka | +91 7899273351 | anu.ravindra08@gmail.com</p>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow"><span class="led" aria-hidden="true"></span> whoami</div>
+    <h1 class="name">Anu Ravindra</h1>
+    <p class="role">Software Engineer <span class="sep">/</span> Full-Stack Developer <span class="sep">/</span> AI &amp; ML Engineer</p>
+
+    <div class="status-pill">
+      <span aria-hidden="true">●</span> Open to full-time Software / Backend / AI-ML roles
+    </div>
+
+    <nav class="contact-row" aria-label="Contact details">
+      <a href="mailto:anu.ravindra08@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+        anu.ravindra08@gmail.com
+      </a>
+      <span class="divider">·</span>
+      <a href="tel:+917899273351">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.6 21 3 14.4 3 6a2 2 0 0 1 1-2Z"/></svg>
+        +91 78992 73351
+      </a>
+      <span class="divider">·</span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Mysore, Karnataka, India
+      </span>
+      <span class="divider">·</span>
+      <a href="https://www.linkedin.com/in/anu-ravindra" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <span class="divider">·</span>
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
 </header>
 
-<div class="container">
+<main class="wrap">
+  <div class="timeline">
 
-  <div class="card">
-    <h2>About Me</h2>
-    <p>
-      Motivated Computer Science Engineering (AI & ML) student passionate about software development, AI, and building scalable solutions. Interested in full-stack development and cloud technologies.
-    </p>
+    <section class="node reveal" id="about">
+      <span class="tag">// about</span>
+      <h2 class="section-title">About</h2>
+      <p class="about-text">
+        I'm a Computer Science &amp; Engineering graduate specializing in <strong>AI &amp; Machine Learning</strong>,
+        currently interning as a <strong>Full-Stack Developer &amp; AI Engineer at Eli Lilly and Company</strong>.
+        I like taking a problem end to end — from schema to API to interface — and I'm equally comfortable
+        wiring up a React front end, designing a backend in Flask or Node, or building an AI agent on top of
+        LangChain and Retrieval-Augmented Generation. My internships at Eli Lilly, Samsung Innovation Campus,
+        and IBM have given me hands-on exposure to full-stack engineering, cloud infrastructure on AWS, and
+        applied data analysis — and I'm looking for a full-time role where I can keep building software that
+        solves real problems.
+      </p>
+    </section>
+
+    <section class="node reveal" id="experience">
+      <span class="tag">// experience</span>
+      <h2 class="section-title">Experience</h2>
+
+      <article class="xp-item">
+        <div class="xp-top">
+          <span class="xp-role">Full-Stack Developer &amp; AI Engineer, Intern</span>
+          <span class="xp-date">Jan 2026 – Jul 2026</span>
+        </div>
+        <div class="xp-org">Eli Lilly and Company · Bengaluru, India</div>
+        <ul>
+          <li>Contributed end-to-end to a Clinical Account Management system and an AI-based report and content-generation tool, from feature design through implementation.</li>
+          <li>Built with AWS cloud services, AI agents, Retrieval-Augmented Generation (RAG), and LangChain to ship intelligent, scalable application features.</li>
+        </ul>
+      </article>
+
+      <article class="xp-item">
+        <div class="xp-top">
+          <span class="xp-role">Artificial Intelligence Trainee</span>
+          <span class="xp-date">Mar 2025 – Sep 2025</span>
+        </div>
+        <div class="xp-org">Samsung Innovation Campus</div>
+        <ul>
+          <li>Completed an intensive applied AI program covering Python, Machine Learning, Deep Learning, and Data Analysis through project-based learning.</li>
+        </ul>
+      </article>
+
+      <article class="xp-item">
+        <div class="xp-top">
+          <span class="xp-role">Data Analytics Intern</span>
+          <span class="xp-date">Jun 2024 – Aug 2024</span>
+        </div>
+        <div class="xp-org">IBM · SkillsBuild Summer Internship</div>
+        <ul>
+          <li>Performed data cleaning, exploratory data analysis, and visualization using industry-standard analytical tools.</li>
+          <li>Extracted actionable insights from real-world datasets to support data-driven decision-making.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="node reveal" id="projects">
+      <span class="tag">// projects</span>
+      <h2 class="section-title">Projects</h2>
+
+      <div class="proj-grid">
+        <article class="proj-card">
+          <div class="proj-titlebar">
+            <span class="proj-dot r"></span><span class="proj-dot y"></span><span class="proj-dot g"></span>
+            <span class="proj-path">campus-event-management-system</span>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-name">Campus Event Management System</h3>
+            <p class="proj-desc">A centralized platform for administrators, faculty, and students to manage campus
+              events efficiently — covering event creation, listings, an upcoming-events view, a full calendar,
+              department-wise statistics, and user management, all built to streamline coordination and
+              campus-wide communication.</p>
+            <div class="proj-meta">
+              <span class="chip">Full-Stack</span>
+              <span class="chip">Python</span>
+              <span class="chip">Flask</span>
+              <span class="chip">MySQL</span>
+            </div>
+            <a class="proj-link" href="https://anuravindra.pythonanywhere.com/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5"/><path d="M19 5l-9 9"/><path d="M19 13v6H5V5h6"/></svg>
+              View live project — anuravindra.pythonanywhere.com
+            </a>
+            <p class="proj-note">© Registered software work — Reg. No. SW-20250212445</p>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-titlebar">
+            <span class="proj-dot r"></span><span class="proj-dot y"></span><span class="proj-dot g"></span>
+            <span class="proj-path">text-and-pdf-dispatcher</span>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-name">Text &amp; PDF Dispatcher</h3>
+            <p class="proj-desc">An automated email distribution system that sends text and PDF documents to
+              multiple recipients at once — recipient data managed through Excel, delivery handled reliably
+              over SMTP, cutting manual effort and improving communication turnaround.</p>
+            <div class="proj-meta">
+              <span class="chip">Python</span>
+              <span class="chip">SMTP</span>
+              <span class="chip">Excel</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-titlebar">
+            <span class="proj-dot r"></span><span class="proj-dot y"></span><span class="proj-dot g"></span>
+            <span class="proj-path">attendance-face-recognition</span>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-name">Attendance Management System — Face Recognition</h3>
+            <p class="proj-desc">A facial-recognition attendance system that automates student attendance
+              tracking, with subject-wise CSV record generation and a user-friendly tabular interface for
+              day-to-day attendance management and data visualization.</p>
+            <div class="proj-meta">
+              <span class="chip">Python</span>
+              <span class="chip">OpenCV</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="node reveal" id="skills">
+      <span class="tag">// skills</span>
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="pin-list">
+            <span class="pin">Python</span><span class="pin">JavaScript</span><span class="pin">C</span><span class="pin">Java</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Frontend / Backend</h3>
+          <div class="pin-list">
+            <span class="pin">React.js</span><span class="pin">HTML5</span><span class="pin">CSS3</span><span class="pin">Node.js</span><span class="pin">Flask</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Databases &amp; Cloud</h3>
+          <div class="pin-list">
+            <span class="pin">MySQL</span><span class="pin">MongoDB</span><span class="pin">AWS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>AI/ML &amp; Data</h3>
+          <div class="pin-list">
+            <span class="pin">Machine Learning</span><span class="pin">LangChain</span><span class="pin">RAG</span><span class="pin">Tableau</span><span class="pin">Power BI</span><span class="pin">EDA</span><span class="pin">Data Cleaning</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <div class="pin-list">
+            <span class="pin">Git</span><span class="pin">GitHub</span><span class="pin">VS Code</span><span class="pin">MS Office</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Soft Skills</h3>
+          <div class="pin-list">
+            <span class="pin">Problem Solving</span><span class="pin">Communication</span><span class="pin">Teamwork</span><span class="pin">Adaptability</span><span class="pin">Cross-Functional Collaboration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="node reveal" id="education">
+      <span class="tag">// education</span>
+      <h2 class="section-title">Education</h2>
+
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">GSSS Institute of Engineering and Technology for Women</div>
+          <div class="edu-sub">Bachelor of Engineering — CSE (AI &amp; ML) · CGPA 9.32</div>
+        </div>
+        <div class="edu-date">2022 – 2026</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">Citizens' PU College</div>
+          <div class="edu-sub">Pre-University — PCMB · 87.6%</div>
+        </div>
+        <div class="edu-date">2020 – 2022</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">Citizens' Public School</div>
+          <div class="edu-sub">Schooling · CGPA 8.2 (CBSE)</div>
+        </div>
+        <div class="edu-date">2007 – 2020</div>
+      </div>
+    </section>
+
+    <section class="node reveal" id="achievements">
+      <span class="tag">// certifications &amp; achievements</span>
+      <h2 class="section-title">Certifications &amp; Achievements</h2>
+      <div class="ach-grid">
+        <div class="ach-item"><span class="mark">▹</span> AWS Academy Graduate — Cloud Foundations</div>
+        <div class="ach-item"><span class="mark">▹</span> AWS Academy Graduate — Data Engineering</div>
+        <div class="ach-item"><span class="mark">▹</span> Google Cloud Career Launchpad — Generative AI track</div>
+        <div class="ach-item"><span class="mark">▹</span> 1st Place — Brainy Bowl Contest, Apti-Club</div>
+        <div class="ach-item"><span class="mark">▹</span> 3rd Place — MindSpark Quiz Your Brain, Apti-Club</div>
+        <div class="ach-item"><span class="mark">▹</span> Participant — Hackcelerate, 24-Hour Hackathon (GSSSIETW)</div>
+        <div class="ach-item"><span class="mark">▹</span> Active member — Google Cloud Club</div>
+        <div class="ach-item"><span class="mark">▹</span> Samsung Innovation Campus — training completion</div>
+      </div>
+      <p class="copyright-note">© Campus Event Management System — Reg. No. SW-20250212445 · Registered 11/08/2025 · Diary No. SW-17609/2025-CO · Category: Software Work · Status: Registered</p>
+    </section>
+
+    <section class="node reveal" id="languages">
+      <span class="tag">// languages</span>
+      <h2 class="section-title">Languages</h2>
+      <div class="lang-row">
+        <span class="lang-item"><b>English</b> — Full Professional</span>
+        <span class="lang-item"><b>Hindi</b> — Native / Bilingual</span>
+        <span class="lang-item"><b>Kannada</b> — Professional Working</span>
+      </div>
+    </section>
+
   </div>
+</main>
 
-  <div class="card">
-    <h2>Education</h2>
-    <ul>
-      <li><b>B.E CSE (AI & ML)</b> – GSSSIETW, 2022–2026 | CGPA: 9.32</li>
-      <li><b>PUC (PCMB)</b> – 87.6%</li>
-      <li><b>SSLC</b> – CGPA: 8.2</li>
-    </ul>
+<footer>
+  <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p>Open to Software Engineer, Full-Stack Developer, Backend, and AI/ML roles.</p>
+    <div class="footer-links">
+      <a class="btn primary" href="mailto:anu.ravindra08@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/anu-ravindra" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="fine">Mysore, Karnataka, India · anu.ravindra08@gmail.com · +91 78992 73351</p>
   </div>
+</footer>
 
-  <div class="card">
-    <h2>Experience</h2>
-    <p><b>Full Stack Developer (Intern) – Eli Lilly and Company</b></p>
-    <ul>
-      <li>Worked on Clinical Account Management and AI content generation systems</li>
-      <li>Used AWS, RAG, AI Agents, and LangChain for intelligent applications</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Projects</h2>
-
-    <p class="project-title">Campus Event Management System</p>
-    <ul>
-      <li>Full-stack platform for managing campus events</li>
-      <li><a href="https://anuravindra.pythonanywhere.com/" target="_blank">Live Project</a></li>
-    </ul>
-
-    <p class="project-title">Text & PDF Dispatcher</p>
-    <ul>
-      <li>Automated bulk email system using Python, Excel, SMTP</li>
-    </ul>
-
-    <p class="project-title">Attendance System (Face Recognition)</p>
-    <ul>
-      <li>Python + OpenCV based attendance automation system</li>
-    </ul>
-
-  </div>
-
-  <div class="card">
-    <h2>Skills</h2>
-
-    <span class="badge">Python</span>
-    <span class="badge">JavaScript</span>
-    <span class="badge">C</span>
-    <span class="badge">React</span>
-    <span class="badge">Node.js</span>
-    <span class="badge">MySQL</span>
-    <span class="badge">MongoDB</span>
-    <span class="badge">AWS</span>
-    <span class="badge">Git</span>
-    <span class="badge">Power BI</span>
-
-  </div>
-
-  <div class="card">
-    <h2>Certifications & Achievements</h2>
-    <ul>
-      <li>Google Cloud Career Launchpad (GenAI)</li>
-      <li>AWS Cloud Foundations</li>
-      <li>1st Place – Brainy Bowl Contest</li>
-      <li>3rd Place – MindSpark Quiz</li>
-      <li>Samsung Innovation Campus Training</li>
-      <li>Google Cloud Club Member</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Languages</h2>
-    <span class="badge">English</span>
-    <span class="badge">Hindi</span>
-    <span class="badge">Kannada</span>
-  </div>
-
-</div>
-
+<script>
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+  }
+</script>
 </body>
 </html>
